@@ -671,114 +671,190 @@ select option {
 
 /* Linux Commands Page Styles */
 .commands-list {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: calc(var(--spacing-unit) * 3);
 }
 
-.command-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+.command-section {
+  background-color: var(--card-background);
+  padding: calc(var(--spacing-unit) * 4);
+  border-radius: var(--border-radius);
+  margin-bottom: calc(var(--spacing-unit) * 3);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
 }
 
-.command-card {
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+.command-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
-.command-card:hover {
-  transform: translateY(-5px);
-}
-
-.command-card h3 {
+.command-section h2 {
   color: var(--primary-color);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin: 0 0 0.5rem 0;
+  font-weight: 600;
 }
 
 .command-description {
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-}
-
-.command-details {
-  background: var(--bg-secondary);
-  border-radius: 8px;
-  padding: 1rem;
-}
-
-.command-details p {
-  margin: 0.5rem 0;
   color: var(--text-primary);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
 }
 
-.command-details code {
-  display: block;
-  background: var(--code-bg);
-  color: var(--code-text);
-  padding: 0.75rem;
-  border-radius: 6px;
-  margin: 0.5rem 0;
+.command-info {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.command-info code {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 0.15rem 0.3rem;
+  border-radius: 4px;
   font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  border: 1px solid var(--border-color);
+}
+
+.command-examples {
+  margin-top: 0.75rem;
+}
+
+.command-examples h3 {
+  color: var(--text-primary);
   font-size: 0.9rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.example {
+  margin-bottom: 0.75rem;
+}
+
+.example:last-child {
+  margin-bottom: 0;
+}
+
+.example p {
+  color: var(--text-primary);
+  margin: 0 0 0.25rem 0;
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+.example code {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  display: block;
+  white-space: nowrap;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
 }
 
 /* Dark mode adjustments */
-[data-theme="dark"] .command-card {
-  background: var(--card-bg);
+[data-theme="dark"] .command-section {
+  background-color: var(--card-background);
 }
 
-[data-theme="dark"] .command-details {
-  background: var(--bg-secondary);
+[data-theme="dark"] .example code,
+[data-theme="dark"] .command-info code {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
 }
 
-[data-theme="dark"] .command-details code {
-  background: var(--code-bg);
-  color: var(--code-text);
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .commands-list {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .command-section {
+    padding: calc(var(--spacing-unit) * 3);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  .command-section h2 {
+    font-size: 1.1rem;
+  }
+
+  .command-description {
+    font-size: 0.85rem;
+  }
+
+  .command-info {
+    font-size: 0.75rem;
+  }
+
+  .command-info code {
+    font-size: 0.75rem;
+  }
+
+  .command-examples h3 {
+    font-size: 0.85rem;
+  }
+
+  .example p {
+    font-size: 0.8rem;
+  }
+
+  .example code {
+    font-size: 0.75rem;
+    padding: 0.4rem;
+  }
 }
 
 /* Resources Page Styles */
 .resources-list {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: calc(var(--spacing-unit) * 3);
 }
 
 .resources-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: calc(var(--spacing-unit) * 3);
+  margin-top: calc(var(--spacing-unit) * 3);
 }
 
 .resource-card {
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  background-color: var(--card-background);
+  padding: calc(var(--spacing-unit) * 4);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .resource-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 .resource-card h3 {
   color: var(--primary-color);
-  font-size: 1.5rem;
-  margin: 0 0 0.5rem 0;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
 }
 
 .resource-description {
   color: var(--text-secondary);
-  font-size: 1.1rem;
+  font-size: 15px;
   margin-bottom: 1rem;
+  line-height: 1.4;
 }
 
 .resource-details {
@@ -797,21 +873,421 @@ select option {
   color: var(--text-primary);
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--border-color);
+  font-size: 15px;
 }
 
 .resource-details li:last-child {
   border-bottom: none;
 }
 
-/* Dark mode adjustments */
+/* Dark mode adjustments for Resource Library cards */
 [data-theme="dark"] .resource-card {
-  background: var(--card-bg);
+  background-color: var(--card-background);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px var(--shadow-color);
 }
-
+[data-theme="dark"] .resource-card h3 {
+  color: var(--primary-color);
+}
+[data-theme="dark"] .resource-description {
+  color: var(--text-secondary);
+}
 [data-theme="dark"] .resource-details {
   background: var(--bg-secondary);
 }
-
 [data-theme="dark"] .resource-details li {
+  color: var(--text-primary);
   border-bottom-color: var(--border-color);
+}
+[data-theme="dark"] .resource-details a {
+  color: var(--primary-color);
+}
+
+/* Linux Commands Sidebar Styles */
+.page-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.sidebar-menu {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .sidebar-menu {
+    display: block;
+    position: sticky;
+    top: 2.5rem;
+    left: 0;
+    min-width: 220px;
+    max-width: 260px;
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    margin-right: calc(var(--spacing-unit) * 4);
+    padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
+    height: fit-content;
+    z-index: 10;
+  }
+  .sidebar-menu h2 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  .sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .sidebar-menu li {
+    margin-bottom: 0.5rem;
+  }
+  .sidebar-menu a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    display: block;
+    transition: background 0.2s, color 0.2s;
+  }
+  .sidebar-menu a:hover, .sidebar-menu a.active {
+    background: var(--primary-color);
+    color: #fff;
+  }
+}
+
+@media (max-width: 899px) {
+  .sidebar-menu {
+    display: none !important;
+  }
+  .page-container {
+    display: block;
+  }
+}
+
+/* Resource Library Page Link Styles */
+.resource-details a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.resource-details a:hover,
+.resource-details a:focus {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+.resource-details a:visited {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* Grading Rubric Card Styles */
+.rubric-card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  padding: calc(var(--spacing-unit) * 4);
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+.rubric-card h2 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.rubric-table-wrapper {
+  overflow-x: auto;
+}
+.rubric-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: none;
+  margin-bottom: 1.5rem;
+  min-width: 700px;
+}
+.rubric-table th, .rubric-table td {
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.rubric-table th {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.rubric-table td {
+  background: transparent;
+  color: var(--text-primary);
+}
+.rubric-table td:first-child {
+  text-align: left;
+  font-weight: 500;
+  color: var(--text-primary);
+  min-width: 180px;
+}
+.rubric-table label {
+  display: block;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  border-radius: 6px;
+  padding: 0.25rem 0.2rem;
+  transition: background 0.2s;
+  line-height: 1.2;
+}
+.rubric-table input[type="radio"] {
+  accent-color: var(--primary-color);
+  margin-right: 0.3em;
+  width: 1.2em;
+  height: 1.2em;
+}
+.rubric-table label:hover {
+  background: var(--hover-bg, #f0f4ff);
+}
+.rubric-score {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+.rubric-total {
+  text-align: right;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-top: 1rem;
+}
+@media (max-width: 900px) {
+  .rubric-card {
+    padding: calc(var(--spacing-unit) * 2);
+    margin: 1rem;
+  }
+  .rubric-table {
+    min-width: 600px;
+  }
+  .rubric-table th, .rubric-table td {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.2rem;
+  }
+  .rubric-table td:first-child {
+    min-width: 120px;
+  }
+  .rubric-total {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .rubric-card {
+    padding: 0.5rem;
+    margin: 0.5rem;
+  }
+  .rubric-table {
+    min-width: 400px;
+  }
+  .rubric-table th, .rubric-table td {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.1rem;
+  }
+  .rubric-table label {
+    font-size: 0.9rem;
+    padding: 0.15rem 0.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+  }
+  .rubric-table input[type="radio"] {
+    width: 1.1em;
+    height: 1.1em;
+    margin-bottom: 0.1em;
+  }
+  .rubric-table td {
+    padding-bottom: 0.2rem;
+  }
+  .rubric-table td:not(:first-child) {
+    min-width: 70px;
+  }
+  .rubric-table td {
+    vertical-align: top;
+  }
+  .rating-label {
+    display: none;
+  }
+}
+[data-theme="dark"] .rubric-card {
+  background-color: var(--card-background);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+[data-theme="dark"] .rubric-table th {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+[data-theme="dark"] .rubric-table td {
+  color: var(--text-primary);
+}
+[data-theme="dark"] .rubric-table label {
+  color: var(--text-primary);
+}
+[data-theme="dark"] .rubric-table label:hover {
+  background: #23232b;
+}
+[data-theme="dark"] .rubric-score, [data-theme="dark"] .rubric-total {
+  color: var(--primary-color);
+}
+
+/* Rubric Notes and Explanations Styles */
+.rubric-notes {
+  max-width: 1000px;
+  margin: 2rem auto 0 auto;
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  padding: calc(var(--spacing-unit) * 3);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+.rubric-warning {
+  background: #fffbe6;
+  color: #b88600;
+  border-left: 4px solid #ffd700;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+.rubric-explanation h3 {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.rubric-explanation h4 {
+  color: var(--primary-color);
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+  margin-top: 1.2rem;
+}
+.rubric-explanation p, .rubric-explanation ul {
+  margin-bottom: 0.7rem;
+  line-height: 1.6;
+}
+.rubric-explanation ul {
+  padding-left: 1.5em;
+  margin-bottom: 0.7rem;
+  list-style-type: disc;
+}
+.rubric-explanation li {
+  margin-bottom: 0.4em;
+  font-size: 15px;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+@media (max-width: 600px) {
+  .rubric-notes {
+    padding: 1rem;
+    font-size: 0.95rem;
+    margin: 1rem 0.2rem 0 0.2rem;
+  }
+  .rubric-warning {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+  .rubric-explanation h3 {
+    font-size: 1.05rem;
+  }
+  .rubric-explanation h4 {
+    font-size: 0.98rem;
+  }
+  .rubric-explanation ul {
+    padding-left: 1.2em;
+  }
+  .rubric-explanation li {
+    font-size: 14px;
+  }
+}
+[data-theme="dark"] .rubric-notes {
+  background: var(--card-background);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+[data-theme="dark"] .rubric-warning {
+  background: #2c2c1e;
+  color: #ffd700;
+  border-left: 4px solid #ffd700;
+}
+
+/* Resource Library Section and Card Title Styles for Consistency */
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: calc(var(--spacing-unit) * 3);
+  color: var(--text-primary);
+}
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+  color: var(--primary-color);
+}
+.card-desc {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+.resource-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.resource-details li {
+  color: var(--text-primary);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 15px;
+}
+.resource-details li:last-child {
+  border-bottom: none;
+}
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 20px;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+  .card-title {
+    font-size: 18px;
+    margin-bottom: calc(var(--spacing-unit));
+  }
+  .card-desc {
+    font-size: 14px;
+  }
+  .resource-details li {
+    font-size: 14px;
+  }
+}
+
+.rubric-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0.1em 0.2em;
+  display: inline-block;
+}
+.rubric-link:hover, .rubric-link:focus {
+  text-decoration: underline;
+  background: var(--hover-bg, #f0f4ff);
+  color: var(--primary-color);
+}
+.rubric-link:active {
+  color: var(--primary-color);
+  background: var(--hover-bg, #e6f0ff);
 }

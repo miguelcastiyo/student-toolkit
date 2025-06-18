@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Learn essential Linux commands for programming" />
+  <meta name="description" content="Essential Linux commands for programming" />
   <meta name="theme-color" content="#007AFF" />
-  <title>Linux Commands - Student Toolkit</title>
+  <title>Linux Commands</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
 </head>
@@ -18,62 +18,119 @@
     </nav>
   </header>
 
-  <main>
-    <section class="commands-list">
-      <h2>Essential Linux Commands</h2>
-      <div class="command-grid">
-        <div class="command-card">
-          <h3>ls</h3>
-          <p class="command-description">List directory contents</p>
-          <div class="command-details">
-            <p>Shows files and folders in the current directory</p>
-            <code>ls -l</code>
-            <p>Shows detailed list with permissions and sizes</p>
+  <div class="page-container">
+    <main>
+      <div class="commands-list">
+        <div class="command-section" id="gpp">
+          <h2>g++</h2>
+          <p class="command-description">Compiles C++ source files. Part of GCC (GNU Compiler Collection).</p>
+          <p class="command-info">More information: <code>man g++</code></p>
+          
+          <div class="command-examples">
+            <h3>Examples</h3>
+            <div class="example">
+              <p>Compile a source code file into an executable binary:</p>
+              <code>g++ {{path/to/source.cpp}} -o {{path/to/output_executable}}</code>
+            </div>
+            <div class="example">
+              <p>Display common warnings:</p>
+              <code>g++ {{path/to/source.cpp}} -Wall -o {{path/to/output_executable}}</code>
+            </div>
+            <div class="example">
+              <p>Choose a language standard to compile for (C++98/C++11/C++14/C++17):</p>
+              <code>g++ {{path/to/source.cpp}} -std={{c++98|c++11|c++14|c++17}} -o {{path/to/output_executable}}</code>
+            </div>
+            <div class="example">
+              <p>Include libraries located at a different path than the source file:</p>
+              <code>g++ {{path/to/source.cpp}} -o {{path/to/output_executable}} -I{{path/to/header}} -L{{path/to/library}} -l{{library_name}}</code>
+            </div>
+            <div class="example">
+              <p>Compile and link multiple source code files into an executable binary:</p>
+              <code>g++ -c {{path/to/source_1.cpp path/to/source_2.cpp ...}} && g++ -o {{path/to/output_executable}} {{path/to/source_1.o path/to/source_2.o ...}}</code>
+            </div>
+            <div class="example">
+              <p>Display version:</p>
+              <code>g++ --version</code>
+            </div>
           </div>
         </div>
 
-        <div class="command-card">
-          <h3>cd</h3>
-          <p class="command-description">Change directory</p>
-          <div class="command-details">
-            <p>Navigate between folders</p>
-            <code>cd /path/to/directory</code>
-            <p>Move to a specific directory</p>
+        <div class="command-section" id="cp">
+          <h2>cp</h2>
+          <p class="command-description">Copy files and directories.</p>
+          <p class="command-info">More information: <code>man cp</code></p>
+          
+          <div class="command-examples">
+            <h3>Examples</h3>
+            <div class="example">
+              <p>Copy a file to another location:</p>
+              <code>cp {{path/to/source_file.ext}} {{path/to/target_file.ext}}</code>
+            </div>
+            <div class="example">
+              <p>Copy a file into another directory, keeping the filename:</p>
+              <code>cp {{path/to/source_file.ext}} {{path/to/target_parent_directory}}</code>
+            </div>
+            <div class="example">
+              <p>Recursively copy a directory's contents to another location (if the destination exists, the directory is copied inside it):</p>
+              <code>cp -R {{path/to/source_directory}} {{path/to/target_directory}}</code>
+            </div>
+            <div class="example">
+              <p>Copy a directory recursively, in verbose mode (shows files as they are copied):</p>
+              <code>cp -vR {{path/to/source_directory}} {{path/to/target_directory}}</code>
+            </div>
+            <div class="example">
+              <p>Copy text files to another location, in interactive mode (prompts user before overwriting):</p>
+              <code>cp -i {{*.txt}} {{path/to/target_directory}}</code>
+            </div>
+            <div class="example">
+              <p>Make symbolic link instead of copying:</p>
+              <code>cp -s {{path/to/source_file.ext}} {{path/to/target_file.ext}}</code>
+            </div>
           </div>
         </div>
 
-        <div class="command-card">
-          <h3>g++</h3>
-          <p class="command-description">C++ compiler</p>
-          <div class="command-details">
-            <p>Compiles C++ source files</p>
-            <code>g++ $CXXFLAGS program.cpp -o program</code>
-            <p>Creates an executable named 'program'</p>
+        <div class="command-section" id="astyle">
+          <h2>astyle</h2>
+          <p class="command-description">Source code indenter, formatter, and beautifier for the C, C++, C# and Java programming languages. Upon running, a copy of the original file is created with an ".orig" appended to the original file name.</p>
+          <p class="command-info">More information: <code>man astyle</code></p>
+          
+          <div class="command-examples">
+            <h3>Examples</h3>
+            <div class="example">
+              <p>Apply the default style of 4 spaces per indent and attached braces:</p>
+              <code>astyle {{source_file}}</code>
+            </div>
+            <div class="example">
+              <p>Apply the Stroustrup style with attached braces:</p>
+              <code>astyle --style=stroustrup {{path/to/file}}</code>
+            </div>
+            <div class="example">
+              <p>Apply the Allman style with broken braces:</p>
+              <code>astyle --style=allman {{path/to/file}}</code>
+            </div>
           </div>
         </div>
 
-        <div class="command-card">
-          <h3>mkdir</h3>
-          <p class="command-description">Make directory</p>
-          <div class="command-details">
-            <p>Creates a new folder</p>
-            <code>mkdir new_folder</code>
-            <p>Creates a directory named 'new_folder'</p>
-          </div>
-        </div>
-
-        <div class="command-card">
-          <h3>rm</h3>
-          <p class="command-description">Remove files</p>
-          <div class="command-details">
-            <p>Deletes files and directories</p>
-            <code>rm filename</code>
-            <p>Removes a specific file</p>
+        <div class="command-section" id="passwd">
+          <h2>passwd</h2>
+          <p class="command-description">Passwd is a tool used to change a user's password.</p>
+          <p class="command-info">More information: <code>man passwd</code></p>
+          
+          <div class="command-examples">
+            <h3>Examples</h3>
+            <div class="example">
+              <p>Change the password of the current user interactively:</p>
+              <code>passwd</code>
+            </div>
+            <div class="example">
+              <p>Get the current status of the user:</p>
+              <code>passwd -S</code>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </main>
+  </div>
 
   <button class="theme-toggle" aria-label="Toggle dark mode">
     <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

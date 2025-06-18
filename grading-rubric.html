@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Interactive Programming Grading Rubric" />
+  <meta name="theme-color" content="#007AFF" />
+  <title>Programming Grading Rubric</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+</head>
+<body>
+  <header>
+    <h1 class="section-title">Programming Grading Rubric</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="grading-rubric.html" class="active">Grading Rubric</a>
+    </nav>
+  </header>
+  <main>
+    <section class="rubric-card">
+      <h2 class="card-title">Programming Rubric</h2>
+      <form id="rubric-form">
+        <div class="rubric-table-wrapper">
+          <table class="rubric-table">
+            <thead>
+              <tr>
+                <th>Criteria</th>
+                <th colspan="5">Ratings</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="#explain-correctness" class="rubric-link">Program Specifications / Correctness</a></td>
+                <td><label><input type="radio" name="correctness" value="40" checked> 40 pts<br><span class="rating-label">Excellent</span></label></td>
+                <td><label><input type="radio" name="correctness" value="32"> 32 pts<br><span class="rating-label">Above Average</span></label></td>
+                <td><label><input type="radio" name="correctness" value="24"> 24 pts<br><span class="rating-label">Average</span></label></td>
+                <td><label><input type="radio" name="correctness" value="16"> 16 pts<br><span class="rating-label">Below Average</span></label></td>
+                <td><label><input type="radio" name="correctness" value="0"> 0 pts<br><span class="rating-label">Not Met</span></label></td>
+                <td class="rubric-score" data-max="40">40 pts</td>
+              </tr>
+              <tr>
+                <td><a href="#explain-readability" class="rubric-link">Readability</a></td>
+                <td><label><input type="radio" name="readability" value="20" checked> 20 pts<br><span class="rating-label">Excellent</span></label></td>
+                <td><label><input type="radio" name="readability" value="16"> 16 pts<br><span class="rating-label">Above Average</span></label></td>
+                <td><label><input type="radio" name="readability" value="12"> 12 pts<br><span class="rating-label">Average</span></label></td>
+                <td><label><input type="radio" name="readability" value="8"> 8 pts<br><span class="rating-label">Below Average</span></label></td>
+                <td><label><input type="radio" name="readability" value="0"> 0 pts<br><span class="rating-label">Not Met</span></label></td>
+                <td class="rubric-score" data-max="20">20 pts</td>
+              </tr>
+              <tr>
+                <td><a href="#explain-documentation" class="rubric-link">Documentation</a></td>
+                <td><label><input type="radio" name="documentation" value="20" checked> 20 pts<br><span class="rating-label">Excellent</span></label></td>
+                <td><label><input type="radio" name="documentation" value="16"> 16 pts<br><span class="rating-label">Above Average</span></label></td>
+                <td><label><input type="radio" name="documentation" value="12"> 12 pts<br><span class="rating-label">Average</span></label></td>
+                <td><label><input type="radio" name="documentation" value="8"> 8 pts<br><span class="rating-label">Below Average</span></label></td>
+                <td><label><input type="radio" name="documentation" value="0"> 0 pts<br><span class="rating-label">Not Met</span></label></td>
+                <td class="rubric-score" data-max="20">20 pts</td>
+              </tr>
+              <tr>
+                <td><a href="#explain-efficiency" class="rubric-link">Code Efficiency</a></td>
+                <td><label><input type="radio" name="efficiency" value="10" checked> 10 pts<br><span class="rating-label">Excellent</span></label></td>
+                <td><label><input type="radio" name="efficiency" value="8"> 8 pts<br><span class="rating-label">Above Average</span></label></td>
+                <td><label><input type="radio" name="efficiency" value="6"> 6 pts<br><span class="rating-label">Average</span></label></td>
+                <td><label><input type="radio" name="efficiency" value="4"> 4 pts<br><span class="rating-label">Below Average</span></label></td>
+                <td><label><input type="radio" name="efficiency" value="0"> 0 pts<br><span class="rating-label">Not Met</span></label></td>
+                <td class="rubric-score" data-max="10">10 pts</td>
+              </tr>
+              <tr>
+                <td><a href="#explain-misc" class="rubric-link">Miscellaneous</a></td>
+                <td><label><input type="radio" name="misc" value="10" checked> 10 pts<br><span class="rating-label">Excellent</span></label></td>
+                <td><label><input type="radio" name="misc" value="8"> 8 pts<br><span class="rating-label">Above Average</span></label></td>
+                <td><label><input type="radio" name="misc" value="6"> 6 pts<br><span class="rating-label">Average</span></label></td>
+                <td><label><input type="radio" name="misc" value="4"> 4 pts<br><span class="rating-label">Below Average</span></label></td>
+                <td><label><input type="radio" name="misc" value="0"> 0 pts<br><span class="rating-label">Not Met</span></label></td>
+                <td class="rubric-score" data-max="10">10 pts</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="rubric-total">
+          <strong>Total Points:</strong> <span id="total-points">100</span>
+        </div>
+      </form>
+    </section>
+    <section class="rubric-notes">
+      <div class="rubric-warning card-desc">
+        <strong>Note:</strong> As a special case, if a submission lacks the name of the author, or, if a program does not meet the specifications at all (entirely incorrect), or, if a program is written in a language other than used in the course, no credit will be received for the other criteria either, i.e., these conditions will result in a score of zero.
+      </div>
+      <div class="rubric-explanation">
+        <h2 class="card-title">Criteria</h2>
+        <h3 class="card-title" id="explain-correctness">Program specifications / correctness</h3>
+        <p class="card-desc">This is the most important criterion. A program must meet its specifications (whether from a textbook problem or as written in the assignment) and function correctly. This means that it behaves as desired, producing the correct output, for a variety of inputs. (In the beginning, I will be lenient with regards to producing correct output for all inputs, as we may not always have the tools needed to accomplish that, yet.) This criterion includes the need to meet specifications by writing a program in a specified way or using a required language feature, if such a thing is specified in the problem.</p>
+        <p class="card-desc">If a specification is ambiguous or unclear, you have two choices: You can either make a reasonable assumption about what is required, based on what makes the most sense to you, or you can ask the instructor. If you make an assumption about an ambiguous specification, you should mention that somewhere in a comment so that the reader/grader knows what you were thinking. Points may be taken off for poor assumptions, however.</p>
+        <h3 class="card-title" id="explain-readability">Readability</h3>
+        <p class="card-desc">Code needs to be readable to both you and a knowledgeable third party. This involves:</p>
+        <ul>
+          <li>Using indentation consistently (e.g., every function's body is indented to the same level)</li>
+          <li>Adding whitespace (blank lines, spaces) where appropriate to help separate distinct parts of the code (e.g., space after commas in lists, blank lines between functions or between blocks of related lines within functions, etc.)</li>
+          <li>Giving variables meaningful names. Variables named 'a', 'b', and 'c' or 'foo', 'bar', and 'baz' give the reader no information whatsoever about their purpose or what information they may hold. Names like 'principal', 'maximum', and 'counter' are much more useful. Loop variables are a common exception to this idea, and loop variables named 'i', 'j', etc. are okay.</li>
+          <li>The code should be well organized. Once we have learned about functions, code should be organized into functions so that blocks of code that need to be reused are contained within functions to enable that, and functions should have meaningful names. This is a concept that we will be learning about as we write more code, and so few points, if any, will be taken off for organization issues that we have not yet addressed.</li>
+        </ul>
+        <h3 class="card-title" id="explain-documentation">Documentation</h3>
+        <p class="card-desc">Every file containing code should start with a header comment. At the very least, this header should contain your name, the name of the file, and a description of what the included code does. Other details you might include are the date it was written, a more detailed description of the approach used in the code if it is complex or may be misunderstood, or references to resources that you used to help you write it.</p>
+        <p class="card-desc">All code should also be well-commented. This requires striking a balance between commenting everything, which adds a great deal of unneeded noise to the code, and commenting nothing, in which case the reader of the code (or you, when you come back to it later) has no assistance in understanding the more complex or less obvious sections of code. In general, aim to put a comment on any line of code that you might not understand yourself if you came back to it in a month without having thought about it in the interim. Like code organization, appropriate commenting is also something we will be learning as we write code throughout the semester, so while corrections may be made, points will only be taken off for things that have been emphasized in class already.</p>
+        <h3 class="card-title" id="explain-efficiency">Code efficiency</h3>
+        <p class="card-desc">There are often many ways to write a program that meets a specification, and several of them are often poor choices. They may be poor choices because they take many more lines of code (and thus your effort and time) than needed, or they may take much more of the computer's time to execute than needed. For example, a certain section of code can be executed ten times by copying and pasting it ten times in a row or by putting it in a simple for loop. The latter is far superior and greatly preferred, not only because it makes it faster to both write the code and read it later, but because it makes it easier for you to change and maintain.</p>
+        <h3 class="card-title" id="explain-misc">Assignment specifications</h3>
+        <p class="card-desc">Assignments will usually contain specifications and/or requirements outside of the programming problems themselves. For example, the way you name your files to submit them to the course website will be specified in the assignment. Other instructions may be included as well, so please read the assignments carefully.</p>
+      </div>
+    </section>
+  </main>
+  <button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"/>
+      <line x1="12" y1="1" x2="12" y2="3"/>
+      <line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/>
+      <line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+  <script>
+    // Interactive rubric logic
+    const form = document.getElementById('rubric-form');
+    const totalPoints = document.getElementById('total-points');
+    const scoreCells = document.querySelectorAll('.rubric-score');
+    form.addEventListener('change', () => {
+      let total = 0;
+      const radios = form.querySelectorAll('input[type="radio"]:checked');
+      radios.forEach(radio => {
+        total += parseInt(radio.value, 10);
+      });
+      totalPoints.textContent = total;
+      // Update each row's score cell
+      ["correctness","readability","documentation","efficiency","misc"].forEach((name, i) => {
+        const val = form.querySelector(`input[name='${name}']:checked`).value;
+        scoreCells[i].textContent = val + ' pts';
+      });
+    });
+
+    // Smooth scroll with header offset for rubric-link anchors
+    document.querySelectorAll('.rubric-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          const header = document.querySelector('header');
+          const headerHeight = header ? header.offsetHeight : 0;
+          const y = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Theme toggle functionality
+    const themeToggle = document.querySelector('.theme-toggle');
+    const sunIcon = document.querySelector('.sun-icon');
+    const moonIcon = document.querySelector('.moon-icon');
+    const html = document.documentElement;
+    // Check for saved theme preference or use system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      html.setAttribute('data-theme', 'dark');
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+    }
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      if (newTheme === 'dark') {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      } else {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html> 
