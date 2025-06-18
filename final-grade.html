@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Calculate what you need on your final exam to achieve your desired grade" />
+  <meta name="theme-color" content="#007AFF" />
+  <title>Final Grade Calculator - Student Toolkit</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+</head>
+<body>
+  <header>
+    <h1>Final Grade Calculator</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="final-grade.html" class="active">Final Grade</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="mode-selector">
+      <div class="mode-toggle">
+        <button id="simple-mode-btn" class="toggle-btn active">Simple Mode</button>
+        <button id="advanced-mode-btn" class="toggle-btn">Advanced Mode</button>
+      </div>
+      <p class="mode-description">Choose between a simple calculation with current grade and final weight, or a detailed calculation with individual assignment grades.</p>
+    </div>
+    
+    <!-- Simple Mode Form -->
+    <form id="simple-grade-form" class="active-form">
+      <div class="form-group">
+        <label for="currentGrade">
+          Current Grade
+          <span class="hint">Check Canvas for your current grade</span>
+        </label>
+        <input type="number" step="0.1" id="currentGrade" placeholder="Enter your current grade" required />
+      </div>
+
+      <div class="form-group">
+        <label for="finalWeight">
+          Final Exam Weight
+          <span class="hint">Percentage of your final grade that the exam is worth (30% in my cs135 course)</span>
+        </label>
+        <input type="number" step="0.1" id="finalWeight" value="30" placeholder="Enter final exam weight" required />
+      </div>
+
+      <div class="form-group">
+        <label for="simpleDesiredGrade">
+          Desired Overall Grade
+          <span class="hint">The grade you want to achieve in the course</span>
+        </label>
+        <select id="simpleDesiredGrade" required>
+          <option value="">Select a grade</option>
+          <option value="100">A (100 to 94%)</option>
+          <option value="94">A- (94 to 90%)</option>
+          <option value="90">B+ (90 to 87%)</option>
+          <option value="87">B (87 to 84%)</option>
+          <option value="84">B- (84 to 80%)</option>
+          <option value="80">C+ (80 to 77%)</option>
+          <option value="77">C (77 to 70%)</option>
+          <option value="70">D+ (70 to 67%)</option>
+          <option value="67">D (67 to 64%)</option>
+          <option value="64">D- (64 to 61%)</option>
+          <option value="61">F (61 to 0%)</option>
+        </select>
+      </div>
+
+      <button type="submit">Calculate Required Grade</button>
+    </form>
+
+    <!-- Advanced Mode Form -->
+    <form id="advanced-grade-form" class="hidden-form">
+      <div class="form-group">
+        <label for="programmingGrade">
+          Programming Assignments
+          <span class="hint">Enter your current grade as a percentage (0-100)</span>
+        </label>
+        <div class="input-wrapper">
+          <input type="number" step="0.1" min="0" max="100" id="programmingGrade" placeholder="Enter percentage" required />
+          <span class="input-suffix">%</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="labsGrade">
+          Labs
+          <span class="hint">Enter your current grade as a percentage (0-100)</span>
+        </label>
+        <div class="input-wrapper">
+          <input type="number" step="0.1" min="0" max="100" id="labsGrade" placeholder="Enter percentage" required />
+          <span class="input-suffix">%</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="quizzesGrade">
+          Quizzes
+          <span class="hint">Enter your current grade as a percentage (0-100)</span>
+        </label>
+        <div class="input-wrapper">
+          <input type="number" step="0.1" min="0" max="100" id="quizzesGrade" placeholder="Enter percentage" required />
+          <span class="input-suffix">%</span>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="midtermGrade">
+          Midterm Exam
+          <span class="hint">Enter your current grade as a percentage (0-100)</span>
+        </label>
+        <div class="input-wrapper">
+          <input type="number" step="0.1" min="0" max="100" id="midtermGrade" placeholder="Enter percentage" required />
+          <span class="input-suffix">%</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="advancedDesiredGrade">
+          Desired Overall Grade
+          <span class="hint">Select your target grade</span>
+        </label>
+        <select id="advancedDesiredGrade" required>
+          <option value="">Select a grade</option>
+          <option value="100">A (100 to 94%)</option>
+          <option value="94">A- (94 to 90%)</option>
+          <option value="90">B+ (90 to 87%)</option>
+          <option value="87">B (87 to 84%)</option>
+          <option value="84">B- (84 to 80%)</option>
+          <option value="80">C+ (80 to 77%)</option>
+          <option value="77">C (77 to 70%)</option>
+          <option value="70">D+ (70 to 67%)</option>
+          <option value="67">D (67 to 64%)</option>
+          <option value="64">D- (64 to 61%)</option>
+          <option value="61">F (61 to 0%)</option>
+        </select>
+      </div>
+
+      <button type="submit">Calculate Required Grade</button>
+    </form>
+
+    <div id="result"></div>
+    <div id="explanation" class="explanation"></div>
+  </main>
+
+  <button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"/>
+      <line x1="12" y1="1" x2="12" y2="3"/>
+      <line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/>
+      <line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+
+  <script src="js/final-grade.js"></script>
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.querySelector('.theme-toggle');
+    const sunIcon = document.querySelector('.sun-icon');
+    const moonIcon = document.querySelector('.moon-icon');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference or use system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      html.setAttribute('data-theme', 'dark');
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      if (newTheme === 'dark') {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      } else {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

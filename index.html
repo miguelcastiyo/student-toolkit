@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="A modern toolkit for students - Calculate grades, GPA, and access helpful resources" />
+  <meta name="theme-color" content="#007AFF" />
+  <title>Student Toolkit</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+</head>
+<body>
+  <header>
+    <h1>Student Toolkit</h1>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="resources.html">Resources</a>
+      <a href="#tools">Useful Tools</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="quick-links">
+      <h2>Quick Links</h2>
+      <div class="links-grid">
+        <a href="https://miguelcastiyo.github.io/Syllabus-CS135/" target="_blank" class="link-card">
+          <span class="emoji">📄</span>
+          <h3>Latest Syllabus</h3>
+          <p>Access the most recent course syllabus</p>
+        </a>
+        <a href="#" class="link-card">
+          <span class="emoji">📋</span>
+          <h3>Grading Rubric</h3>
+          <p>View detailed grading criteria</p>
+        </a>
+        <a href="#" class="link-card">
+          <span class="emoji">🎥</span>
+          <h3>Previous Lectures</h3>
+          <p>Watch recorded lectures and presentations</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="tools" class="tool-list">
+      <h2>Useful Tools</h2>
+      <div class="tools-grid">
+        <a class="tool-card" href="resources.html">
+          <span class="emoji">📚</span>
+          <h2>Resource Library</h2>
+          <p>Access helpful study resources and tools</p>
+        </a>
+        <a class="tool-card" href="linux-commands.html">
+          <span class="emoji">💻</span>
+          <h2>Linux Commands</h2>
+          <p>Learn essential Linux commands for your programming journey</p>
+        </a>
+        <a class="tool-card" href="final-grade.html">
+          <span class="emoji">🎯</span>
+          <h2>Final Grade Calculator</h2>
+          <p>Calculate what you need on your final exam to achieve your desired grade</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"/>
+      <line x1="12" y1="1" x2="12" y2="3"/>
+      <line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/>
+      <line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.querySelector('.theme-toggle');
+    const sunIcon = document.querySelector('.sun-icon');
+    const moonIcon = document.querySelector('.moon-icon');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference or use system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      html.setAttribute('data-theme', 'dark');
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      if (newTheme === 'dark') {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      } else {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
