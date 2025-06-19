@@ -1181,12 +1181,17 @@ select option {
   padding-left: 1.5em;
   margin-bottom: 0.7rem;
   list-style-type: disc;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.4;
+  font-family: inherit;
 }
 .rubric-explanation li {
-  margin-bottom: 0.4em;
+  margin-bottom: 0.2em;
+  color: var(--text-secondary);
   font-size: 15px;
-  color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.4;
+  font-family: inherit;
 }
 @media (max-width: 600px) {
   .rubric-notes {
@@ -1206,6 +1211,7 @@ select option {
   }
   .rubric-explanation ul {
     padding-left: 1.2em;
+    font-size: 14px;
   }
   .rubric-explanation li {
     font-size: 14px;
