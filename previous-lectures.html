@@ -3,67 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="A modern toolkit for students - Calculate grades, GPA, and access helpful resources" />
+  <meta name="description" content="View previous lecture slides and recordings" />
   <meta name="theme-color" content="#007AFF" />
-  <title>Student Toolkit</title>
+  <title>Previous Lectures</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 </head>
 <body>
   <header>
-    <h1>Student Toolkit</h1>
+    <h1 class="section-title">Previous Lectures</h1>
     <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="resources.html">Resources</a>
-      <a href="#tools">Useful Tools</a>
+      <a href="index.html">Home</a>
+      <a href="previous-lectures.html" class="active">Previous Lectures</a>
     </nav>
   </header>
-
   <main>
-    <section class="quick-links">
-      <h2>Quick Links</h2>
-      <div class="links-grid">
-        <a href="https://miguelcastiyo.github.io/Syllabus-CS135/" target="_blank" class="link-card">
-          <span class="emoji">📄</span>
-          <h3>Latest Syllabus</h3>
-          <p>Access the most recent course syllabus</p>
-        </a>
-        <a href="grading-rubric.html" class="link-card">
-          <span class="emoji">📋</span>
-          <h3>Grading Rubric</h3>
-          <p>View detailed grading criteria</p>
-        </a>
-        <a href="previous-lectures.html" class="link-card">
-          <span class="emoji">🎥</span>
-          <h3>Previous Lectures</h3>
-          <p>Watch recorded lectures and presentations</p>
-        </a>
-      </div>
-    </section>
-
-    <section id="tools" class="tool-list">
-      <h2>Useful Tools</h2>
-      <div class="tools-grid">
-        <a class="tool-card" href="resources.html">
-          <span class="emoji">📚</span>
-          <h2>Resource Library</h2>
-          <p>Access helpful study resources and tools</p>
-        </a>
-        <a class="tool-card" href="linux-commands.html">
-          <span class="emoji">💻</span>
-          <h2>Linux Commands</h2>
-          <p>Learn essential Linux commands for your programming journey</p>
-        </a>
-        <a class="tool-card" href="final-grade.html">
-          <span class="emoji">🎯</span>
-          <h2>Final Grade Calculator</h2>
-          <p>Calculate what you need on your final exam to achieve your desired grade</p>
-        </a>
+    <section class="resources-list">
+      <div class="resources-grid">
+        <div class="resource-card">
+          <h2 class="card-title">Lecture Slides</h2>
+          <p class="card-desc">Download or view slides from previous semesters.</p>
+          <div class="resource-details">
+            <ul>
+              <li>Fall 2025 <span role="img" aria-label="warning">⚠️</span></li>
+              <li><a href="#" target="_blank">Spring 2025</a></li>
+              <li><a href="#" target="_blank">Fall 2024</a></li>
+              <li><a href="#" target="_blank">Spring 2024</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="resource-card">
+          <h2 class="card-title">Recorded Lectures</h2>
+          <p class="card-desc">Watch recordings from previous semesters.</p>
+          <div class="resource-details">
+            <ul>
+              <li><a href="#" target="_blank">Spring 2024 - Week 1 Recording</a></li>
+              <li><a href="#" target="_blank">Spring 2024 - Week 2 Recording</a></li>
+              <li><a href="#" target="_blank">Fall 2023 - Week 1 Recording</a></li>
+              <!-- Add more as needed -->
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   </main>
-
   <button class="theme-toggle" aria-label="Toggle dark mode">
     <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="5"/>
@@ -80,31 +64,24 @@
       <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
     </svg>
   </button>
-
   <script>
     // Theme toggle functionality
     const themeToggle = document.querySelector('.theme-toggle');
     const sunIcon = document.querySelector('.sun-icon');
     const moonIcon = document.querySelector('.moon-icon');
     const html = document.documentElement;
-    
-    // Check for saved theme preference or use system preference
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
       html.setAttribute('data-theme', 'dark');
       sunIcon.style.display = 'none';
       moonIcon.style.display = 'block';
     }
-    
     themeToggle.addEventListener('click', () => {
       const currentTheme = html.getAttribute('data-theme');
       const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      
       html.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
-      
       if (newTheme === 'dark') {
         sunIcon.style.display = 'none';
         moonIcon.style.display = 'block';
@@ -115,4 +92,4 @@
     });
   </script>
 </body>
-</html>
+</html> 
