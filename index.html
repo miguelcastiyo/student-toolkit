@@ -6,7 +6,7 @@
   <meta name="description" content="A modern toolkit for students - Calculate grades, GPA, and access helpful resources" />
   <meta name="theme-color" content="#007AFF" />
   <title>Student Toolkit</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 </head>
@@ -113,6 +113,44 @@
         moonIcon.style.display = 'none';
       }
     });
+
+    // --- Highlight 'Useful Tools' nav link on mobile when in view or clicked ---
+    const navLinks = document.querySelectorAll('nav a');
+    const usefulToolsLink = document.querySelector('nav a[href="#tools"]');
+    const toolsSection = document.getElementById('tools');
+    const mobileMedia = window.matchMedia('(max-width: 768px)');
+
+    function setActiveLink(link) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      if (link) link.classList.add('active');
+    }
+
+    // Click: highlight immediately
+    usefulToolsLink.addEventListener('click', function() {
+      if (mobileMedia.matches) {
+        setActiveLink(usefulToolsLink);
+      }
+    });
+
+    // Scroll: highlight if #tools is in view
+    function handleScrollHighlight() {
+      if (!mobileMedia.matches) return; // Only on mobile
+      const rect = toolsSection.getBoundingClientRect();
+      const navHeight = document.querySelector('nav').offsetHeight || 0;
+      // Section is considered in view if its top is at or above nav, and bottom is below nav
+      if (rect.top - navHeight <= 0 && rect.bottom > navHeight) {
+        setActiveLink(usefulToolsLink);
+      } else {
+        // Only remove if not on the section and not just clicked
+        if (!usefulToolsLink.matches(':focus')) {
+          usefulToolsLink.classList.remove('active');
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScrollHighlight);
+    window.addEventListener('resize', handleScrollHighlight);
+    // Initial check
+    handleScrollHighlight();
   </script>
 </body>
 </html>

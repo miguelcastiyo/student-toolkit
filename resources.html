@@ -4,10 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Access helpful study resources and tools" />
-  <meta name="theme-color" content="#007AFF" />
+  <meta name="theme-color" content="#F5F5F7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1C1C1E" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>Resource Library - Student Toolkit</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+  <style>
+    html {
+      overscroll-behavior: none;
+      background-color: #F5F5F7;
+    }
+    @media (prefers-color-scheme: dark) {
+      html {
+        background-color: #1C1C1E;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -28,20 +41,8 @@
           <div class="resource-details">
             <ul>
               <li><a href="https://github.com/miguelcastiyo/cs135-materials/tree/main/assignments" target="_blank" rel="noopener noreferrer">Programming Assignments</a></li>
-              <li>Lab Exercises</li>
+              <li>Lab Exercises <span role="img" aria-label="warning">⚠️</span></li>
               <li>Sample Solutions <span role="img" aria-label="warning">⚠️</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="resource-card">
-          <h2 class="card-title">Sample Code</h2>
-          <p class="card-desc">Example code snippets and templates</p>
-          <div class="resource-details">
-            <ul>
-              <li>Common Algorithms</li>
-              <li>Data Structures</li>
-              <li>Code Templates</li>
             </ul>
           </div>
         </div>
@@ -51,19 +52,8 @@
           <p class="card-desc">Additional learning resources</p>
           <div class="resource-details">
             <ul>
-              <li>Practice Problems</li>
-              <li>Study Guides</li>
-              <li>Reference Materials</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="resource-card">
-          <h2 class="card-title">Grading Rubric</h2>
-          <p class="card-desc">View the programming grading rubric and calculate your potential score</p>
-          <div class="resource-details">
-            <ul>
-              <li><a href="grading-rubric.html">Open Interactive Rubric</a></li>
+              <li><a href="https://github.com/education/students" target="_blank" rel="noopener noreferrer">GitHub for Students</a></li>
+              <li><a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer">Tech Tutorials</a></li>
             </ul>
           </div>
         </div>
