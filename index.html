@@ -153,8 +153,10 @@
       
       const rect = toolsSection.getBoundingClientRect();
       const navHeight = document.querySelector('nav').offsetHeight || 0;
-      // Section is considered in view if its top is at or above nav, and bottom is below nav
-      if (rect.top - navHeight <= 0 && rect.bottom > navHeight) {
+      const headerHeight = document.querySelector('header').offsetHeight || 0;
+      
+      // Section is considered in view if its top is at or above the bottom of header, and bottom is below nav
+      if (rect.top - headerHeight <= 0 && rect.bottom > navHeight) {
         setActiveLink(usefulToolsLink);
       } else {
         usefulToolsLink.classList.remove('active');
