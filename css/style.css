@@ -369,10 +369,10 @@ button[type="submit"]:hover {
   }
 
   .theme-toggle {
-    bottom: calc(var(--spacing-unit) * 2);
-    right: calc(var(--spacing-unit) * 2);
-    width: 44px;
-    height: 44px;
+    top: calc(var(--spacing-unit) * 1.5);
+    right: calc(var(--spacing-unit) * 1.5);
+    width: 40px;
+    height: 40px;
   }
 
   .theme-toggle svg {
