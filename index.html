@@ -127,6 +127,7 @@
     const usefulToolsLink = document.querySelector('nav a[href="#tools"]');
     const toolsSection = document.getElementById('tools');
     const mobileMedia = window.matchMedia('(max-width: 768px)');
+    let justClicked = false;
 
     function setActiveLink(link) {
       navLinks.forEach(l => l.classList.remove('active'));
@@ -137,22 +138,26 @@
     usefulToolsLink.addEventListener('click', function() {
       if (mobileMedia.matches) {
         setActiveLink(usefulToolsLink);
+        justClicked = true;
+        // Reset the flag after the scroll animation completes
+        setTimeout(() => {
+          justClicked = false;
+        }, 1000);
       }
     });
 
     // Scroll: highlight if #tools is in view
     function handleScrollHighlight() {
       if (!mobileMedia.matches) return; // Only on mobile
+      if (justClicked) return; // Don't interfere if we just clicked
+      
       const rect = toolsSection.getBoundingClientRect();
       const navHeight = document.querySelector('nav').offsetHeight || 0;
       // Section is considered in view if its top is at or above nav, and bottom is below nav
       if (rect.top - navHeight <= 0 && rect.bottom > navHeight) {
         setActiveLink(usefulToolsLink);
       } else {
-        // Only remove if not on the section and not just clicked
-        if (!usefulToolsLink.matches(':focus')) {
-          usefulToolsLink.classList.remove('active');
-        }
+        usefulToolsLink.classList.remove('active');
       }
     }
     window.addEventListener('scroll', handleScrollHighlight);
