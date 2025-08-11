@@ -8,8 +8,17 @@
   <meta name="theme-color" content="#1C1C1E" media="(prefers-color-scheme: dark)">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>Grading Rubric</title>
+  <script>
+    (function() {
+      var base = document.createElement('base');
+      var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      base.setAttribute('href', isLocal ? '/' : '/~mcastillo/student-toolkit/');
+      document.head.appendChild(base);
+    })();
+  </script>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
   <style>
     html {
       background-color: var(--background-color);
@@ -20,9 +29,9 @@
   <header>
     <h1 class="section-title">Student Toolkit</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="grading-standards.html">Grading Standards</a>
-      <a href="programming-grading-rubric.html" class="active">Grading Rubric</a>
+      <a href="./">Home</a>
+      <a href="grading-standards/">Grading Standards</a>
+      <a href="programming-grading-rubric/" class="active">Grading Rubric</a>
     </nav>
   </header>
   <main>
@@ -197,4 +206,5 @@
     });
   </script>
 </body>
-</html> 
+</html>
+

@@ -8,6 +8,14 @@
   <meta name="theme-color" content="#1C1C1E" media="(prefers-color-scheme: dark)">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>Student Toolkit</title>
+  <script>
+    (function() {
+      var base = document.createElement('base');
+      var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      base.setAttribute('href', isLocal ? '/' : '/~mcastillo/student-toolkit/');
+      document.head.appendChild(base);
+    })();
+  </script>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
@@ -21,8 +29,8 @@
   <header>
     <h1>Student Toolkit</h1>
     <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="resources.html">Resources</a>
+      <a href="./" class="active">Home</a>
+      <a href="resources/">Resources</a>
       <a href="#tools">Useful Tools</a>
     </nav>
   </header>
@@ -36,12 +44,12 @@
           <h3>Latest Syllabus</h3>
           <p>Access the most recent course syllabus</p>
         </a>
-        <a href="programming-grading-rubric.html"class="link-card">
+        <a href="programming-grading-rubric/"class="link-card">
           <span class="emoji">📋</span>
           <h3>Grading Rubric</h3>
           <p>View detailed grading criteria for programming assignments</p>
         </a>
-        <a href="previous-lectures.html" class="link-card">
+        <a href="previous-lectures/" class="link-card">
           <span class="emoji">🎥</span>
           <h3>Previous Lectures</h3>
           <p>Watch recorded lectures and presentations</p>
@@ -52,17 +60,17 @@
     <section id="tools" class="tool-list">
       <h2>Useful Tools</h2>
       <div class="tools-grid">
-        <a class="tool-card" href="resources.html">
+        <a class="tool-card" href="resources/">
           <span class="emoji">📚</span>
           <h2>Resource Library</h2>
           <p>Access helpful study resources and tools</p>
         </a>
-        <a class="tool-card" href="linux-commands.html">
+        <a class="tool-card" href="linux-commands/">
           <span class="emoji">💻</span>
           <h2>Linux Commands</h2>
           <p>Learn essential Linux commands for your programming journey</p>
         </a>
-        <a class="tool-card" href="final-grade.html">
+        <a class="tool-card" href="final-grade/">
           <span class="emoji">🎯</span>
           <h2>Final Grade Calculator</h2>
           <p>Calculate what you need on your final exam to achieve your desired grade</p>

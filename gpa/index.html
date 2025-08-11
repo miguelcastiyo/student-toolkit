@@ -3,53 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="View previous lecture slides and recordings" />
+  <meta name="description" content="Calculate your GPA and track your academic performance" />
   <meta name="theme-color" content="#F5F5F7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#1C1C1E" media="(prefers-color-scheme: dark)">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <title>Previous Lectures</title>
+  <title>GPA Calculator - Student Toolkit</title>
+  <script>
+    (function() {
+      var base = document.createElement('base');
+      var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      base.setAttribute('href', isLocal ? '/' : '/~mcastillo/student-toolkit/');
+      document.head.appendChild(base);
+    })();
+  </script>
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👻</text></svg>">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
   <style>
-    html {
-      background-color: var(--background-color);
-    }
+    html { background-color: var(--background-color); }
   </style>
 </head>
 <body>
   <header>
-    <h1 class="section-title">Previous Lectures</h1>
+    <h1>GPA Calculator</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="previous-lectures.html" class="active">Previous Lectures</a>
+      <a href="./">Home</a>
+      <a href="gpa/" class="active">GPA</a>
     </nav>
   </header>
+
   <main>
-    <section class="resources-list">
-      <div class="resources-grid">
-        <div class="resource-card">
-          <h2 class="card-title">Lecture Slides</h2>
-          <p class="card-desc">Download or view slides from previous semesters.</p>
-          <div class="resource-details">
-            <ul>
-              <li>Fall 2025 <span role="img" aria-label="warning">⚠️</span></li>
-              <li><a href="https://github.com/miguelcastiyo/cs135-materials/tree/main/resources/slides" target="_blank">Spring 2025</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="resource-card">
-          <h2 class="card-title">Recorded Lectures</h2>
-          <p class="card-desc">Watch recordings from previous semesters.</p>
-          <div class="resource-details">
-            <ul>
-              <li><a href="https://youtu.be/ozyirLF0EXE" target="_blank">Connecting to the Bellagio Server</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <section class="tool-list">
+      <p class="card-desc">GPA calculator coming soon.</p>
     </section>
   </main>
+
   <button class="theme-toggle" aria-label="Toggle dark mode">
     <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="5"/>
@@ -66,8 +54,8 @@
       <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
     </svg>
   </button>
+
   <script>
-    // Theme toggle functionality
     const themeToggle = document.querySelector('.theme-toggle');
     const sunIcon = document.querySelector('.sun-icon');
     const moonIcon = document.querySelector('.moon-icon');
@@ -94,4 +82,5 @@
     });
   </script>
 </body>
-</html> 
+</html>
+

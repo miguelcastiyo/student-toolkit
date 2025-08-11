@@ -8,6 +8,14 @@
   <meta name="theme-color" content="#1C1C1E" media="(prefers-color-scheme: dark)">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>Grading Standards - Student Toolkit</title>
+  <script>
+    (function() {
+      var base = document.createElement('base');
+      var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      base.setAttribute('href', isLocal ? '/' : '/~mcastillo/student-toolkit/');
+      document.head.appendChild(base);
+    })();
+  </script>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
   <style>
@@ -20,8 +28,8 @@
   <header>
     <h1>Student Toolkit</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="grading-standards.html" class="active">Grading Standards</a>
+      <a href="./">Home</a>
+      <a href="grading-standards/" class="active">Grading Standards</a>
     </nav>
   </header>
 
@@ -29,12 +37,12 @@
     <section class="tool-list">
       <h2>Available Resources</h2>
       <div class="tools-grid">
-        <a class="tool-card" href="programming-guidelines.html">
+        <a class="tool-card" href="programming-guidelines/">
           <span class="emoji">📝</span>
           <h2>Programming Guidelines</h2>
           <p>Learn about programming best practices and coding standards</p>
         </a>
-        <a class="tool-card" href="programming-grading-rubric.html">
+        <a class="tool-card" href="programming-grading-rubric/">
           <span class="emoji">📋</span>
           <h2>Grading Rubric</h2>
           <p>View detailed grading criteria for programming assignments</p>
@@ -94,4 +102,5 @@
     });
   </script>
 </body>
-</html> 
+</html>
+
