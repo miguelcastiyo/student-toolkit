@@ -1303,6 +1303,46 @@ select option {
   box-shadow: 0 0 0 2px var(--primary-color);
   background-color: var(--bg-secondary);
 }
-.theme-toggle svg:focus {
-  outline: none;
+
+/* --- Enhanced code block styling for guidelines page --- */
+pre code,
+pre.card-desc code,
+pre.card-desc {
+  background: #23272e !important;
+  color: #f8f8f2 !important;
+  border-radius: 8px;
+  padding: 1.1em 1.3em;
+  font-size: 1em;
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+  overflow-x: auto;
+  border: 1px solid #1a202c22;
+  margin-bottom: 0;
+  line-height: 1.6;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  white-space: pre;
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive code block container */
+.code-block-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+/* On small screens, reduce font size and padding for code blocks */
+@media (max-width: 600px) {
+  .code-block-wrapper {
+    margin-bottom: 1rem;
+  }
+  pre code,
+  pre.card-desc code,
+  pre.card-desc {
+    font-size: 0.92em;
+    padding: 0.7em 0.7em;
+    border-radius: 6px;
+  }
 }
