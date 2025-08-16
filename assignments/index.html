@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Access helpful study resources and tools" />
+  <meta name="description" content="Programming Guidelines and Best Practices" />
   <meta name="theme-color" content="#F5F5F7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#1C1C1E" media="(prefers-color-scheme: dark)">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <title>Resource Library - Student Toolkit</title>
+  <title>Programming Guidelines - Student Toolkit</title>
   <script>
     (function() {
       var base = document.createElement('base');
@@ -20,64 +20,41 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
   <style>
-    html {
-      background-color: var(--background-color);
-    }
-    body {
-      background-color: var(--background-color);
+    html { background-color: var(--background-color); }
+    /* Match card look for embedded content */
+    .embed-card { padding: 0; overflow: hidden; border-radius: var(--border-radius); box-shadow: 0 2px 8px var(--shadow-color); background-color: var(--card-background); }
+    .embed-header { display: flex; align-items: center; justify-content: space-between; padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3); border-bottom: 1px solid var(--input-border); }
+    .embed-header h3 { font-size: 16px; font-weight: 600; margin: 0; }
+    .embed-header a { color: var(--primary-color); text-decoration: none; font-size: 14px; }
+    .embed-card iframe { display: block; width: 100%; height: 600px; border: 0; }
+    /* Dark mode approximation for cross-origin content */
+    [data-theme="dark"] .embed-card iframe { filter: invert(0.92) hue-rotate(180deg); }
+    @media (max-width: 768px) {
+      .embed-card iframe { height: 75vh; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Student Toolkit</h1>
+    <h1 class="section-title">Student Toolkit</h1>
     <nav>
       <a href="./">Home</a>
-      <a href="resources/" class="active">Resources</a>
+      <a href="assignments/" class="active">Assignments</a>
     </nav>
   </header>
 
   <main>
-    <section class="resources-list">
-      <h2 class="section-title">Resource Library</h2>
-      <div class="resources-grid">
-
-        <div class="resource-card">
-          <h2 class="card-title">CS 135 - Fall 2025 Docs</h2>
-          <p class="card-desc">Required resources for CS 135</p>
-          <div class="resource-details">
-            <ul>
-              <li><a href="latest-syllabus/" target="_blank" rel="noopener noreferrer">Latest Syllabus</a></li>
-              <li><a href="assignments/" target="_blank" rel="noopener noreferrer">Assignments</a></li>
-              <li><a href="programming-grading-rubric/" target="_blank" rel="noopener noreferrer">Grading Rubric</a></li>
-              <li><a href="programming-guidelines/" target="_blank" rel="noopener noreferrer">Programming Guidelines</a></li>
-            </ul>
+    <section class="tool-list">
+      <div class="tools-grid">
+        <div class="tool-card embed-card" aria-label="Assignments">
+          <div class="embed-header">
+            <h3>Assignments</h3>
+            <a href="https://beaded-volleyball-9e1.notion.site/ebd/22a36f86b07b80cf8ed8e20c6ac5865f" target="_blank" rel="noopener">Open in Notion</a>
           </div>
-        </div>
-
-        <div class="resource-card">
-          <h2 class="card-title">Previous Assignments</h2>
-          <p class="card-desc">Access past semester assignments and solutions</p>
-          <div class="resource-details">
-            <ul>
-              <li><a href="https://github.com/miguelcastiyo/cs135-materials/tree/main/assignments" target="_blank" rel="noopener noreferrer">Programming Assignments</a></li>
-              <li>Lab Exercises <span role="img" aria-label="warning">⚠️</span></li>
-              <li>Sample Solutions <span role="img" aria-label="warning">⚠️</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="resource-card">
-          <h2 class="card-title">Study Materials</h2>
-          <p class="card-desc">Additional learning resources</p>
-          <div class="resource-details">
-            <ul>
-              <li><a href="https://github.com/education/students" target="_blank" rel="noopener noreferrer">GitHub for Students</a></li>
-              <li><a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer">Tech Tutorials</a></li>
-            </ul>
-          </div>
+          <iframe src="https://beaded-volleyball-9e1.notion.site/ebd/22a36f86b07b80cf8ed8e20c6ac5865f" width="100%" height="600" frameborder="0" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
+
     </section>
   </main>
 
